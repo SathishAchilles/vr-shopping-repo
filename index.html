@@ -1,0 +1,64 @@
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++<html>
+  <head>
+    <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-event-set-component@3.0.3/dist/aframe-event-set-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-href-component@0.5.1/dist/aframe-href-component.min.js"></script> 
+  </head>
+  <script>
+    AFRAME.register('auto-enter-vr',{
+      init: function(){
+        this.el.sceneEl.enterVR();
+      }    
+    });
+  </script>
+  <body>
+    <a-scene auto-enter-vr>
+       <a-assets>
+         <img id="skyTexture" src="https://cdn.glitch.com/4591eb96-0e6c-40d3-bbfd-0d88e186e30b%2FWhite-Wallpaper-HD-Texture-6Q-1024x576.jpg?1506014038899">
+         <img id="homeThumbnail" src="https://cdn.glitch.com/4591eb96-0e6c-40d3-bbfd-0d88e186e30b%2Fcategory_clothing.jpg?1506055688074">
+         <img id="wine_img" src="https://cdn.glitch.com/4591eb96-0e6c-40d3-bbfd-0d88e186e30b%2Fcatgory_wine.jpg?1506055966841">
+         <img id="grocery_img" src="https://cdn.glitch.com/4591eb96-0e6c-40d3-bbfd-0d88e186e30b%2Fcategory_grocery.jpg?1506055689933">
+      </a-assets>
+     <a-sky id="background" src="#skyTexture" ></a-sky>
+      <a-text id="HomeScreen" 
+              value="What are you looking for?" 
+              align="right" color="#000000"
+              width="10"
+              position="2.7 2.00 -3.21">
+      </a-text>
+      <!-- clothing -->
+      <a-text value="Clothing" position="-1.9 -0.2 -4.0" color="#000000" align="left"> </a-text>
+     <a-image src="#homeThumbnail" geometry="height:2.14;width:2.48" 
+              position="-1.7 -1.6 -4.0" 
+              material="height:2.99;width:5"
+              href="products.html">
+      </a-image>
+      
+      <!-- Wine -->
+      <a-text value="Wine" position="1.4 -0.2 -4.0" color="#000000" align="center"> </a-text>
+     <a-image src="#wine_img" geometry="height:2.14;width:2.0" 
+              position="1.4 -1.6 -4.0" 
+              material="height:2.99;width:5"
+              href="wine.html">
+      </a-image>
+      
+      <!-- Grocery -->
+      <a-text value="Grocery" position="3.9 -0.2 -4.0" color="#000000" align="right"> </a-text>
+     <a-image src="#grocery_img" geometry="height:2.14;width:2.48" 
+              position="3.7 -1.6 -4.0" 
+              material="height:2.99;width:5"
+              href="grocery.html" >
+      </a-image>
+        
+      <a-camera look-controls wasd-controls cursor="maxDistance: 30; fuse: true" position="1.0 -0.58 1.0" >
+        <!-- progress bar -->
+        <a-entity position="0 0 -3" geometry="primitive: ring; radiusOuter: 0.07;radiusInner: 0.05;" material="color: cyan; shader: flat"
+            cursor="maxDistance: 30; fuse: true; fuseTimeout: 1500.000">
+            <!--<a-cursor color="red"></a-cursor>-->
+            <a-animation begin="click" easing="ease-in" attribute="scale" fill="forwards" from="0.1 0.1 0.1" to="1 1 1" dur="1500"></a-animation>
+            <a-animation begin="fusing" easing="ease-in" attribute="scale" fill="backwards" from="1 1 1" to="0.1 0.1 0.1" dur="1500"></a-animation>
+        </a-entity>
+    </a-camera>
+    </a-scene>
+  </body>
+</html>
