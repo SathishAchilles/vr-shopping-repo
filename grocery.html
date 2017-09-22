@@ -1,0 +1,47 @@
+<html>
+  <head>
+    <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-event-set-component@3.0.3/dist/aframe-event-set-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-href-component@0.5.1/dist/aframe-href-component.min.js"></script> 
+  </head>
+  <script>
+  </script>
+  <body>
+    <a-scene>
+       <a-assets>
+         <img id="skyTexture" src="https://cdn.glitch.com/4591eb96-0e6c-40d3-bbfd-0d88e186e30b%2FWhite-Wallpaper-HD-Texture-6Q-1024x576.jpg?1506014038899">
+     </a-assets>
+     <a-sky id="background" src="#skyTexture" ></a-sky>
+      <a-text value="Categories" color="#000" position="-4.5 2.7 -4.5" align="left" href="index.html">
+      </a-text>
+      
+       <a-image id="category3-product1"
+               src="https://cdn.glitch.com/4591eb96-0e6c-40d3-bbfd-0d88e186e30b%2FJeans-28.png?1506005310767"
+               position="-1.6 1.200 -3.21"
+                href="category3-product1.html">
+        </a-image>
+       <a-image id="category3-product2"
+               event-set__click="_event: click; _target: #cartText1; visible: true"
+               src="https://cdn.glitch.com/4591eb96-0e6c-40d3-bbfd-0d88e186e30b%2FJeans-30.png?1506005308753"
+               position="-2.6 1.200 -3.21"
+               href="category3-product2.html" > 
+        </a-image>
+       <a-image id="category3-product3"
+               event-set__click="_event: click; _target: #cartText2; visible: true"
+               src="https://cdn.glitch.com/4591eb96-0e6c-40d3-bbfd-0d88e186e30b%2FJeans-29.png?1506005308475"
+               position="-3.6 1.200 -3.21"
+               href="category3-product3.html">
+        </a-image>
+      
+    <a-camera look-controls wasd-controls cursor="maxDistance: 30; fuse: true" position="-1.0 -0.58 6.0" >
+        <!-- progress bar -->
+        <a-entity position="0 0 -3" geometry="primitive: ring; radiusOuter: 0.07;radiusInner: 0.05;" material="color: cyan; shader: flat"
+            cursor="maxDistance: 30; fuse: true; fuseTimeout: 1500.000">
+            <!--<a-cursor color="red"></a-cursor>-->
+            <a-animation begin="click" easing="ease-in" attribute="scale" fill="forwards" from="0.1 0.1 0.1" to="1 1 1" dur="1500"></a-animation>
+            <a-animation begin="fusing" easing="ease-in" attribute="scale" fill="backwards" from="1 1 1" to="0.1 0.1 0.1" dur="1500"></a-animation>
+        </a-entity>
+    </a-camera>
+    </a-scene>
+  </body>
+</html>
